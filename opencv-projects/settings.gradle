@@ -1,4 +1,4 @@
-//rootProject.name = "My Application"
+rootProject.name = "OpenCV 3.4.14 Projects"
 include ':opencv-sdk'
 include ':camera-calibration'
 include ':color-blob-detection'
