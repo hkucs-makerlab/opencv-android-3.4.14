@@ -124,7 +124,6 @@ android {
     }
 }
 //https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html
-
 /*
 gradle.projectsEvaluated {
     tasks.withType(JavaCompile) {
@@ -135,6 +134,13 @@ gradle.projectsEvaluated {
     }
 }
 */
+//https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+//    options.deprecation  = true
+//    options.verbose = true
+//    options.warnings = false
+//}
 
 dependencies {
 }
