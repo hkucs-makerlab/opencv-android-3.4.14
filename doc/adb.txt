@@ -1,0 +1,8 @@
+
+$adb shell getprop ro.product.cpu.abilist
+
+$adb shell getprop ro.product.cpu.abi
+
+$adb shell pm list packages
+
+

@@ -1,0 +1,10 @@
+//rootProject.name = "My Application"
+include ':opencv-sdk'
+include ':camera-calibration'
+include ':color-blob-detection'
+include ':face-detection'
+include ':image-manipulations'
+include ':puzzle'
+include ':tutorial1-camera-preview'
+include ':tutorial2-mixed-processing'
+include ':tutorial3-camera-control'

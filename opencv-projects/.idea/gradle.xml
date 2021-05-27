@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/camera-calibration" />
+            <option value="$PROJECT_DIR$/color-blob-detection" />
+            <option value="$PROJECT_DIR$/face-detection" />
+            <option value="$PROJECT_DIR$/image-manipulations" />
+            <option value="$PROJECT_DIR$/opencv-sdk" />
+            <option value="$PROJECT_DIR$/puzzle" />
+            <option value="$PROJECT_DIR$/tutorial1-camera-preview" />
+            <option value="$PROJECT_DIR$/tutorial2-mixed-processing" />
+            <option value="$PROJECT_DIR$/tutorial3-camera-control" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
