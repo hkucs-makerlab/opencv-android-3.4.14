@@ -5,13 +5,11 @@ android {
 
     defaultConfig {
         applicationId "org.opencv.samples.facedetect"
+        minSdkVersion 18
+        targetSdkVersion 30
         ndk {
             moduleName "detection_based_tracker"
         }
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
     }
 
     buildTypes {
@@ -20,23 +18,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-    splits {
-        // Configures multiple APKs based on ABI.
-        abi {
-            // Enables building multiple APKs per ABI.
-            enable true
-            // By default all ABIs are included, so use reset() and include to specify that we only
-            // want APKs, reset() resets the list of ABIs that Gradle should create APKs for to none.
-            reset()
-            // Specifies a list of ABIs that Gradle should create APKs for.
-            include "x86", "x86_64","mips64","mips","armeabi-v7a","armeabi","arm64-v8a"
-            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk false
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
         }
     }
 }
 
 dependencies {
-    implementation project(path: ':opencv-sdk')
+    implementation project(':opencv-sdk')
 }
-

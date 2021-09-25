@@ -1,10 +1,13 @@
 package org.opencv.samples.facedetect;
 
+import android.util.Log;
+
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
 
 public class DetectionBasedTracker
 {
+    private static final String    TAG                 = "OCVSample::DetectionBasedTracker";
     public DetectionBasedTracker(String cascadeName, int minFaceSize) {
         mNativeObj = nativeCreateObject(cascadeName, minFaceSize);
     }
@@ -22,6 +25,7 @@ public class DetectionBasedTracker
     }
 
     public void detect(Mat imageGray, MatOfRect faces) {
+        Log.i(TAG, "called detect");
         nativeDetect(mNativeObj, imageGray.getNativeObjAddr(), faces.getNativeObjAddr());
     }
 

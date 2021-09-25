@@ -61,11 +61,14 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
                 {
-                    Log.i(TAG, "OpenCV loaded successfully");
+                    Log.d(TAG, "OpenCV loaded successfully");
 
                     // Load native library after(!) OpenCV initialization
-                    System.loadLibrary("detection_based_tracker");
-
+                    try {
+                        System.loadLibrary("detection_based_tracker");
+                    } catch (Exception e) {
+                        Log.d(TAG, "detection_based_tracker failed!");
+                    }
                     try {
                         // load cascade file from application resources
                         InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
@@ -112,7 +115,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         mDetectorName[JAVA_DETECTOR] = "Java";
         mDetectorName[NATIVE_DETECTOR] = "Native (tracking)";
 
-        Log.i(TAG, "Instantiated new " + this.getClass());
+        Log.d(TAG, "Instantiated new " + this.getClass());
     }
 
     /** Called when the activity is first created. */
@@ -151,6 +154,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
     }
 
     public void onDestroy() {
+        Log.i(TAG, "called onDestroy");
         super.onDestroy();
         mOpenCvCameraView.disableView();
     }

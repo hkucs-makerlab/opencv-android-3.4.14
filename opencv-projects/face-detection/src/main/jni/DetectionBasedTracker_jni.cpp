@@ -20,11 +20,12 @@ inline void vector_Rect_to_Mat(vector<Rect>& v_rect, Mat& mat)
 
 class CascadeDetectorAdapter: public DetectionBasedTracker::IDetector
 {
+private:
+    CascadeDetectorAdapter();
+    cv::Ptr<cv::CascadeClassifier> Detector;
+
 public:
-    CascadeDetectorAdapter(cv::Ptr<cv::CascadeClassifier> detector):
-            IDetector(),
-            Detector(detector)
-    {
+    CascadeDetectorAdapter(cv::Ptr<cv::CascadeClassifier> detector): IDetector(), Detector(detector) {
         LOGD("CascadeDetectorAdapter::Detect::Detect");
         CV_Assert(detector);
     }
@@ -32,7 +33,9 @@ public:
     void detect(const cv::Mat &Image, std::vector<cv::Rect> &objects)
     {
         LOGD("CascadeDetectorAdapter::Detect: begin");
-        LOGD("CascadeDetectorAdapter::Detect: scaleFactor=%.2f, minNeighbours=%d, minObjSize=(%dx%d), maxObjSize=(%dx%d)", scaleFactor, minNeighbours, minObjSize.width, minObjSize.height, maxObjSize.width, maxObjSize.height);
+        LOGD("CascadeDetectorAdapter::Detect: scaleFactor=%.2f, minNeighbours=%d, minObjSize=(%dx%d), maxObjSize=(%dx%d)",
+        scaleFactor, minNeighbours, minObjSize.width, minObjSize.height, maxObjSize.width, maxObjSize.height);
+        // to fix - below linking problem with NDK
         Detector->detectMultiScale(Image, objects, scaleFactor, minNeighbours, 0, minObjSize, maxObjSize);
         LOGD("CascadeDetectorAdapter::Detect: end");
     }
@@ -42,9 +45,7 @@ public:
         LOGD("CascadeDetectorAdapter::Detect::~Detect");
     }
 
-private:
-    CascadeDetectorAdapter();
-    cv::Ptr<cv::CascadeClassifier> Detector;
+
 };
 
 struct DetectorAgregator
